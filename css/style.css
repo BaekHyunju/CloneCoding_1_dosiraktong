@@ -3,26 +3,32 @@
 /* 글꼴 import 진행 */
 @import url("./font/font.css");
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-ul, li {
+
+ul,
+li {
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
     color: #333;
 }
-img{
+
+img {
     border: 0;
     vertical-align: middle;
 }
-html{
+
+html {
     font-size: 16px;
 }
-body{
+
+body {
     font-family: "Poppins", "Pretendard", sans-serif;
     color: #222;
     font-size: 16px;
@@ -30,8 +36,9 @@ body{
     letter-spacing: 0;
     word-break: keep-all;
 }
-/* 공통요소 */
-.inner{
+
+/* 공통요소 두번이상 재활용 */
+.inner {
     position: relative;
     display: block;
     /* 반응형이므로 max 권장 */
@@ -43,10 +50,11 @@ body{
 
 
 /* 레이아웃 */
-.wrap{
+.wrap {
     position: relative;
     display: block;
 }
+
 /* 상단 */
 .header {
     /* 메뉴가 상단에 고정해서 스크롤이 된다면 fixed 아니면 absolute */
@@ -54,7 +62,7 @@ body{
     left: 0;
     top: 0;
     display: block;
-    width:100%;
+    width: 100%;
     height: 100px;
     /* header 는 무조건 z-index 쓰자! 최대값으로 쓰자! */
     z-index: 9999;
@@ -62,10 +70,11 @@ body{
     transition: height 0.5s, background 0.5s;
 }
 
-.header .inner{
+.header .inner {
     max-width: 100%;
     height: 100%;
 }
+
 /* 
     left, top, right, bottom 사용시
     반드시 position:absolute 쓰자.
@@ -87,25 +96,40 @@ body{
     background-size: cover;
     transition: top 0.5s, background 0.5s;
 }
-.nav{
+
+.nav {
     position: absolute;
     right: 0;
     top: 0;
     height: 100px;
 }
+
 .gnb {
     display: flex;
     height: 100%;
+    /* 세로 중앙 정렬 */
     align-items: center;
 }
-.gnb li {
-    
+
+/* .gnb > li 주의사항 만약에 서브 메뉴가 있다면 */
+.gnb>li {}
+
+.gnb>li>a {
+    font-size: 17px;
+    /* font-weight : 400; */
+    font-weight: 500;
+    color: #fff;
+    /* padding 을 왜 쓰는가? a태그 영역확대 */
+    padding: 40px 38px;
 }
+
+
 /* 스크롤시 css 적용 js */
-.header.active{
+.header.active {
     height: 80px;
     background: rgba(255, 255, 255, 1);
 }
+
 .header.active .logo {
     background: url("../images/logo.png") no-repeat center;
     background-size: cover;
@@ -121,24 +145,27 @@ body{
     background: url('../images/main_visual_1.jpg') no-repeat center;
     background-size: cover;
 }
+
 /* 서비스 */
 .service {
     position: relative;
     display: block;
 }
+
 /* 정보 */
 .info {
     position: relative;
     display: block;
 }
+
 /* 서비스 카테고리 */
 .category {
     position: relative;
     display: block;
 }
+
 /* 하단 */
 .footer {
     position: relative;
     display: block;
 }
-
