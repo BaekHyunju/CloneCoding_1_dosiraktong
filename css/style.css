@@ -1,6 +1,4 @@
 @charset "utf-8";
-/* 절대로 위의 줄은 1번줄에 배치 */
-/* 글꼴 import 진행 */
 @import url("./font/font.css");
 
 * {
@@ -89,14 +87,12 @@ html.active {
 
 /* 상단 */
 .header {
-    /* 메뉴가 상단에 고정해서 스크롤이 된다면 fixed */
     position: fixed;
     left: 0;
     top: 0;
     display: block;
     width: 100%;
     height: 100px;
-    /* header 는 무조건 z-index 쓰자! 최대값으로 쓰자. */
     z-index: 9999;
     background: rgba(255, 255, 255, 0);
     transition: height 0.5s, background 0.5s;
@@ -109,21 +105,10 @@ html.active {
     z-index: 9;
 }
 
-/* 
-    left, top, right, bottom 사용시
-    반드시 position:absolute 쓰자.
-    즉, position: relative 에 쓰지말자
-*/
-
 .logo {
     position: absolute;
     top: 35px;
     left: 60px;
-    /* 
-        a, span 등등은 기본 display:inline  
-        너비, 높이, margin, padding 설정 못함
-        그래서 최소 inline-block 이라고 해야 한다.
-    */
     display: inline-block;
     width: 125px;
     height: 30px;
@@ -146,12 +131,9 @@ html.active {
 .gnb {
     display: flex;
     height: 100%;
-    /* 세로 중앙 정렬 */
     align-items: center;
 }
 
-/* .gnb > li : 주의사항 만약에 서브 메뉴가 있다면 */
-.gnb>li {}
 
 .gnb>li>a {
     display: block;
@@ -159,7 +141,6 @@ html.active {
     /* font-weight: 400 */
     font-weight: 500;
     color: #fff;
-    /* 왜 padding 을 쓰는가? a 태그 영역확대*/
     padding: 40px 38px;
 }
 
@@ -185,13 +166,6 @@ html.active {
     width: 100%;
 }
 
-/* 
-    javaScript 에서는 
-    display:none 선택이 안될 때가 있어요. 
-    querySelector(".mb-bt");
-    opacity: 0 는 배제합니다. 작동이 되요.   
-    
-*/
 .mb-bt {
     position: absolute;
     right: -20000px;
@@ -230,10 +204,6 @@ html.active {
 
 /* 모바일 메뉴 */
 .mb-nav {
-    /* 
-        만약 relative 라면 다른 영역에 영향을 준다. 
-        margin, padding, width, height...
-    */
     position: absolute;
     left: 100%;
     top: 0;
@@ -243,8 +213,6 @@ html.active {
     padding-top: 90px;
     transition: left 0.3s ease-in-out;
 }
-
-.mb-nav-gnb {}
 
 .mb-nav-gnb>li {
     border-bottom: 1px solid #e5e5e5;
@@ -545,12 +513,8 @@ html.active {
         height: 48.95vw;
     }
 
-    /* 비주얼 안쪽의 내용 부분 사이즈 조절 */
 }
 
-@media screen and (max-width: 60px) {
-    /* 비주얼 안쪽의 내용 부분 사이즈 조절 */
-}
 
 /* 서비스 */
 .service {
@@ -566,11 +530,6 @@ html.active {
 
 .service h2 {
     text-align: center;
-    /* 글자 셋팅 */
-}
-
-.service h2 span {
-    /* 글자색만 수정 */
 }
 
 .service-contents {
@@ -618,17 +577,6 @@ html.active {
 
 @media screen and (max-width: 1460px) {
     .service-contents {
-        /* 
-      왜 1920px 이 아니고       
-      1460 이 되냐면??????      
-      1560px 일때 680 px 부터 ****
-      1510px 일때 680 px 부터 ****
-      1500px 일때 680 px 부터 ****
-      1460px 일때 680 px 부터 ****
-      높이가 줄어들기 때문입니다.
-
-      (1460px / 680px) * 100 = 46.57vw
-    */
         height: 46.57vw;
     }
 }
@@ -638,6 +586,7 @@ html.active {
         height: 100%;
         padding: 90px 30px;
     }
+
     .service {
         height: auto;
     }
@@ -659,33 +608,21 @@ html.active {
 
     .service-link-1 {
         max-width: 660px;
-
-        /* 1024px : 660px = 64.45vw */
         width: 64.45vw;
-
-        /* 1024px : 640px = 64.45vw */
         height: 62.5vw;
-
-        /* flex 를 적용안했으므로 */
         margin: 0 auto;
     }
 
     .service-link-2 {
         max-width: 660px;
-        /* 1024px : 660px = 64.45vw */
         width: 64.45vw;
-
-        /* 1024px : 310px = 30vw */
         height: 30vw;
         margin-bottom: 20px;
     }
 
     .service-link-3 {
         max-width: 660px;
-        /* 1024px : 660px = 64.45vw */
         width: 64.45vw;
-
-        /* 1024px : 310px = 30vw */
         height: 30vw;
     }
 }
@@ -808,6 +745,7 @@ html.active {
     .info .inner {
         padding: 90px 30px;
     }
+
     .info-contents {
         justify-content: center;
         flex-wrap: wrap;
@@ -1034,10 +972,11 @@ h2 span {
     .category-link {
         padding: 15px 30px;
     }
-    .category-link::after{
+
+    .category-link::after {
         width: 70%;
         background-size: contain;
-        
+
     }
 
 }
@@ -1051,30 +990,26 @@ h2 span {
 
 
 @media screen and (max-width: 640px) {
-.category-title{
-    font-size: 20px;
-}
-.category-content{
-    font-size: 15px;
-    margin-bottom: 30px;
-}
-.read{
-    font-size: 14px;
-}
-.category-link{
-    padding: 10px 20px;
-    min-height: 300px;
-}
+    .category-title {
+        font-size: 20px;
+    }
+
+    .category-content {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+
+    .read {
+        font-size: 14px;
+    }
+
+    .category-link {
+        padding: 10px 20px;
+        min-height: 300px;
+    }
 
 
 }
-
-
-
-
-
-
-
 
 
 
@@ -1086,28 +1021,34 @@ h2 span {
     text-align: center;
     background: #222;
     color: #666;
-    
+
 }
-.footer .inner{
+
+.footer .inner {
     display: flex;
     flex-direction: column;
 
 }
-.footer-top{
+
+.footer-top {
     margin-bottom: 60px;
     font-size: 15px;
 }
-.footer-top-information{
+
+.footer-top-information {
     margin-bottom: 20px;
     line-height: 1.5;
 }
-.footer-top-information span{
+
+.footer-top-information span {
     color: #666;
     padding: 0 18px;
 }
-.footer-line{
+
+.footer-line {
     position: relative;
 }
+
 .footer-line:not(:last-child)::after {
     content: "";
     display: block;
@@ -1119,31 +1060,35 @@ h2 span {
     background: #444;
     transform: translateY(-50%);
 }
-.footer-bottom{
+
+.footer-bottom {
     font-size: 14px;
     color: #444;
 }
 
 @media screen and (max-width: 640px) {
-.footer-top-information{
-    display: flex;
-    flex-direction: column;
-}
-.footer-line:not(:last-child)::after {
-display: none;
-}
-.footer-top-service p {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-.footer-top-service span{
-    margin-top: 10px;
-}
-.footer-top{
-    margin-bottom: 35px;
-}
-
-
-
+    .footer-top-information {
+        display: flex;
+        flex-direction: column;
     }
+
+    .footer-line:not(:last-child)::after {
+        display: none;
+    }
+
+    .footer-top-service p {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .footer-top-service span {
+        margin-top: 10px;
+    }
+
+    .footer-top {
+        margin-bottom: 35px;
+    }
+
+
+}
